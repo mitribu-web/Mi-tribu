@@ -7,250 +7,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --purple:#6C3CE9;
-    --purple-dark:#4B22B0;
-    --pink:#E63975;
-    --navy:#1A1A2E;
-    --gray:#6B7280;
-    --lilac:#EDE9FA;
-    --lilac-soft:#F3F0FC;
-    --pink-soft:#FDF0F4;
-    --white:#FFFFFF;
-    --border:#ECE8F7;
-    --shadow: 0 10px 30px rgba(26,26,46,0.08);
-    --radius: 20px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    color:var(--navy);
-    background:var(--white);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,h4{font-family:'Poppins',sans-serif;margin:0;line-height:1.15;}
-  p{margin:0;}
-  a{text-decoration:none;color:inherit;}
-  img,svg{display:block;}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
-  .eyebrow{
-    font-family:'Inter',sans-serif;
-    font-weight:700;
-    font-size:12.5px;
-    letter-spacing:1.4px;
-    text-transform:uppercase;
-    color:var(--pink);
-    margin-bottom:10px;
-    display:block;
-  }
-  .section-title{font-size:clamp(26px,3.4vw,38px);font-weight:700;color:var(--navy);letter-spacing:-0.5px;}
-  .section-sub{font-size:16px;color:var(--gray);max-width:640px;margin-top:14px;font-weight:400;}
-  section{padding:96px 0;}
-  .pill{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--purple);color:var(--white);
-    font-weight:600;font-size:13px;letter-spacing:0.4px;
-    padding:9px 18px;border-radius:999px;
-  }
-  .grad-circle{
-    background:linear-gradient(135deg,var(--purple),var(--pink));
-  }
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:14px 26px;border-radius:12px;font-weight:600;font-size:15px;
-    font-family:'Inter',sans-serif;cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .btn-primary{background:var(--purple);color:#fff;box-shadow:0 8px 20px rgba(108,60,233,0.32);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(108,60,233,0.4);}
-  .btn-ghost{background:transparent;color:var(--navy);border:1.5px solid #DDD6F3;}
-  .btn-ghost:hover{border-color:var(--purple);color:var(--purple);}
-
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(255,255,255,0.86);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1240px;margin:0 auto;}
-  .logo{font-family:'Poppins',sans-serif;font-weight:600;font-size:22px;color:var(--navy);}
-  .logo b{color:var(--purple);font-weight:800;}
-  .logo b.u{color:var(--pink);}
-  .navlinks{display:flex;gap:30px;font-size:14.5px;font-weight:500;color:var(--navy);}
-  .navlinks a{opacity:0.75;transition:opacity .15s;}
-  .navlinks a:hover{opacity:1;color:var(--purple);}
-  .navcta{display:flex;gap:12px;align-items:center;}
-  .burger{display:none;}
-
-  /* ---------- HERO ---------- */
-  .hero{padding:0;}
-  .hero-grid{display:grid;grid-template-columns:0.92fr 1.25fr;min-height:640px;}
-  .hero-left{
-    background:linear-gradient(160deg,#F6F4FD 0%, #F4EEFB 55%, #FBEEF4 100%);
-    padding:72px 56px 56px 32px;
-    position:relative;overflow:hidden;
-    display:flex;flex-direction:column;justify-content:center;
-  }
-  .hero-left .wordmark{font-family:'Poppins',sans-serif;font-weight:500;font-size:28px;margin-bottom:26px;}
-  .hero-left .wordmark b{font-weight:800;color:var(--purple);}
-  .hero-left .wordmark b.u{color:var(--pink);}
-  .hero-headline{font-size:clamp(30px,3.6vw,44px);font-weight:700;letter-spacing:-1px;margin:22px 0 18px;}
-  .hero-headline .acc-p{color:var(--purple);}
-  .hero-headline .acc-k{color:var(--pink);}
-  .hero-desc{font-size:16px;color:var(--gray);max-width:460px;margin-bottom:30px;}
-  .hero-ctas{display:flex;gap:14px;margin-bottom:56px;flex-wrap:wrap;}
-  .hero-orb{
-    position:absolute;bottom:-70px;right:-40px;width:230px;height:230px;border-radius:50%;
-    opacity:0.9;
-  }
-  .hero-spark{position:absolute;background:var(--pink);border-radius:2px;}
-
-  .hero-right{background:#fff;padding:64px 48px;display:flex;flex-direction:column;justify-content:center;}
-  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px;}
-  .stat-card{
-    background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 20px;
-    box-shadow:var(--shadow);
-  }
-  .stat-icon{width:42px;height:42px;border-radius:12px;background:var(--lilac);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
-  .stat-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:30px;background:linear-gradient(120deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .stat-label{font-size:13.5px;font-weight:600;color:var(--navy);margin-top:2px;}
-  .stat-note{font-size:12.5px;color:var(--gray);margin-top:6px;}
-
-  /* ---------- GENERIC CARD GRID ---------- */
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-
-  .card{
-    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-    padding:32px;box-shadow:var(--shadow);
-  }
-  .icon-badge{width:54px;height:54px;border-radius:14px;background:var(--lilac);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
-  .icon-badge.pink{background:var(--pink-soft);}
-
-  .bg-soft{background:var(--lilac-soft);}
-
-  /* ---------- PROBLEMA / bg tint section ---------- */
-  .tint{background:linear-gradient(180deg,#FBFAFE, #F6F3FC);}
-
-  /* ---------- PERSONAS ---------- */
-  .persona-card{border-radius:var(--radius);padding:36px;box-shadow:var(--shadow);border:1px solid var(--border);}
-  .persona-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:999px;margin-bottom:16px;}
-  .persona-list{margin-top:18px;padding:0;list-style:none;}
-  .persona-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:14.5px;color:var(--navy);}
-  .persona-list li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--purple);}
-  .persona-card.pink .persona-list li::before{background:var(--pink);}
-
-  /* ---------- COMO FUNCIONA ---------- */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:48px;}
-  .step{position:relative;padding:0 18px;text-align:left;}
-  .step-num-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#fff;}
-  .step-line{position:absolute;top:28px;left:-50%;width:100%;height:2px;background:#E4DEF7;z-index:0;}
-  .step:first-child .step-line{display:none;}
-  .step h4{font-size:17px;margin-bottom:8px;}
-  .step p{font-size:14px;color:var(--gray);}
-
-  /* ---------- SERVICIOS ---------- */
-  .service-card{border-radius:var(--radius);padding:30px;border:1px solid var(--border);transition:transform .18s ease, box-shadow .18s ease;box-shadow:var(--shadow);background:#fff;}
-  .service-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(26,26,46,0.12);}
-  .service-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
-  .service-card h3{font-size:19px;margin-bottom:8px;}
-  .service-card p{font-size:14.5px;color:var(--gray);}
-
-  /* ---------- POSITIONING MAP (signature) ---------- */
-  .map-wrap{
-    background:#fff;border:1px solid var(--border);border-radius:24px;
-    padding:44px;box-shadow:var(--shadow);margin-top:46px;
-    display:grid;grid-template-columns:1.15fr 0.85fr;gap:44px;align-items:center;
-  }
-  .map-svg-holder{position:relative;}
-  .axis-label{font-size:12px;font-weight:600;color:var(--gray);letter-spacing:0.3px;}
-  .comp-legend{display:flex;flex-direction:column;gap:14px;}
-  .comp-row{display:flex;align-items:center;gap:12px;font-size:13.5px;}
-  .dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
-  .comp-side h4{font-size:15px;margin-bottom:14px;font-weight:700;}
-  .comp-blurb{font-size:14px;color:var(--gray);margin-top:18px;line-height:1.6;}
-
-  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
-  .chip{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;background:var(--lilac-soft);color:var(--purple);}
-  .chip.weak{background:var(--pink-soft);color:var(--pink);}
-
-  /* ---------- MODELO ---------- */
-  .rev-card{border-radius:18px;padding:26px;border:1px solid var(--border);box-shadow:var(--shadow);background:#fff;}
-  .rev-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:26px;background:linear-gradient(120deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .cost-list{list-style:none;padding:0;margin:0;}
-  .cost-list li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:14.5px;}
-  .cost-list li:last-child{border-bottom:none;}
-  .cost-list span.tag{color:var(--gray);font-size:13px;}
-
-  /* ---------- CLOSING BANNER ---------- */
-  .closing{
-    background:linear-gradient(120deg,var(--purple), #7B4CEE 55%, var(--pink));
-    border-radius:28px;padding:56px;color:#fff;position:relative;overflow:hidden;
-  }
-  .closing h2{font-size:clamp(24px,3vw,32px);font-weight:700;max-width:720px;}
-  .closing .eyebrow{color:#F1D9E6;}
-
-  footer{padding:40px 0;border-top:1px solid var(--border);}
-  .footer-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--gray);flex-wrap:wrap;gap:12px;}
-
-  /* ---------- reveal animation ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
-
-  @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-left{padding:56px 24px 40px;}
-    .hero-right{padding:40px 24px;}
-    .stat-grid{grid-template-columns:1fr 1fr;}
-    .grid-2{grid-template-columns:1fr;}
-    .grid-3{grid-template-columns:1fr 1fr;}
-    .grid-4{grid-template-columns:1fr 1fr;}
-    .steps{grid-template-columns:1fr 1fr;row-gap:34px;}
-    .step-line{display:none;}
-    .map-wrap{grid-template-columns:1fr;padding:28px;}
-    .navlinks{display:none;}
-    section{padding:64px 0;}
-  }
-  @media (max-width:560px){
-    .grid-3{grid-template-columns:1fr;}
-    .grid-4{grid-template-columns:1fr 1fr;}
-    .wrap{padding:0 20px;}
-    .closing{padding:34px;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .reveal{transition:none;opacity:1;transform:none;}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <nav class="nav">
-    <div class="logo">mi <b>trib</b><b class="u">u</b></div>
+    <a href="index.html" class="logo">mi <b>trib</b><b class="u">u</b></a>
     <div class="navlinks">
-      <a href="#problema">El problema</a>
-      <a href="#personas">A quién ayudamos</a>
-      <a href="#funciona">Cómo funciona</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#mercado">Mercado</a>
-      <a href="#modelo">Modelo</a>
+      <a href="index.html" class="active">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
     </div>
     <div class="navcta">
-      <a href="#servicios" class="btn btn-primary" style="padding:10px 20px;font-size:14px;">Explorar servicios</a>
+      <a href="app/login.html" class="btn btn-ghost btn-sm" style="margin-right:4px;">Iniciar sesión</a>
+      <a href="contacto.html" class="btn btn-primary btn-sm">Contáctanos</a>
+      <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-panel">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
     </div>
   </nav>
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section style="padding:0;">
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="wordmark">mi <b>trib</b><b class="u">u</b></div>
       <span class="pill">EL ECOSISTEMA CREATIVO</span>
       <h1 class="hero-headline">
         El ecommerce que conecta <span class="acc-p">marcas</span> con <span class="acc-k">talento creativo</span>.
@@ -260,8 +47,8 @@
         y una experiencia de compra tan simple como pedir un producto online.
       </p>
       <div class="hero-ctas">
-        <a href="#servicios" class="btn btn-primary">Explorar servicios</a>
-        <a href="#funciona" class="btn btn-ghost">Cómo funciona</a>
+        <a href="servicios.html" class="btn btn-primary">Explorar servicios</a>
+        <a href="nosotros.html" class="btn btn-ghost">Cómo funciona</a>
       </div>
       <div class="hero-orb grad-circle"></div>
       <div class="hero-spark" style="width:22px;height:3px;bottom:210px;right:230px;transform:rotate(45deg);"></div>
@@ -272,33 +59,25 @@
       <h2 class="section-title" style="font-size:26px;">Perú tiene talento freelance de sobra y marcas que no llegan a él</h2>
       <div class="stat-grid">
         <div class="stat-card">
-          <div class="stat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V10l8-5 8 5v10" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="stat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V10l8-5 8 5v10" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="stat-num">25%</div>
           <div class="stat-label">de la fuerza laboral es freelance</div>
           <div class="stat-note">Statista, 2024</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3 9 4-18 3 9h4" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="stat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l3 9 4-18 3 9h4" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="stat-num">70%+</div>
           <div class="stat-label">de la población ocupada es informal</div>
           <div class="stat-note">INEI</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="#6C3CE9" stroke-width="2"/><path d="M3.5 20c0-3.3 2.5-6 5.8-6M17 8.2a3 3 0 1 1 0 6M14.5 20c0-3 2.4-5.5 5.5-6" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
+          <div class="stat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="#6C3CE9" stroke-width="2"/><path d="M3.5 20c0-3.3 2.5-6 5.8-6M17 8.2a3 3 0 1 1 0 6M14.5 20c0-3 2.4-5.5 5.5-6" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round"/></svg></div>
           <div class="stat-num">63%</div>
           <div class="stat-label">de jóvenes sin experiencia para empleo formal</div>
           <div class="stat-note">Barrera de entrada, PE</div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="6" height="10" stroke="#6C3CE9" stroke-width="2"/><rect x="15" y="6" width="6" height="14" stroke="#6C3CE9" stroke-width="2"/><rect x="9" y="14" width="6" height="6" stroke="#6C3CE9" stroke-width="2"/></svg>
-          </div>
+          <div class="stat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="6" height="10" stroke="#6C3CE9" stroke-width="2"/><rect x="15" y="6" width="6" height="14" stroke="#6C3CE9" stroke-width="2"/><rect x="9" y="14" width="6" height="6" stroke="#6C3CE9" stroke-width="2"/></svg></div>
           <div class="stat-num">95%+</div>
           <div class="stat-label">de empresas en Perú son micro y pequeñas</div>
           <div class="stat-note">Sin presupuesto para agencias</div>
@@ -308,263 +87,69 @@
   </div>
 </section>
 
-<!-- ============ PROBLEMA / NARRATIVA ============ -->
-<section id="problema" class="tint reveal">
-  <div class="wrap">
-    <span class="eyebrow">¿Qué está pasando?</span>
-    <h2 class="section-title">Talento y demanda existen. La conexión, no.</h2>
-    <p class="section-sub">
-      El trabajo freelance crece en Perú, pero los profesionales creativos —diseño, contenido, marketing digital—
-      enfrentan ingresos inestables y dificultad para conseguir clientes de forma constante. Del otro lado, las micro
-      y pequeñas empresas necesitan servicios creativos para competir digitalmente, pero no tienen presupuesto para
-      agencias tradicionales. El resultado: oferta y demanda que no se encuentran de forma eficiente.
-    </p>
-    <div class="grid-2" style="margin-top:40px;">
-      <div class="card">
-        <div class="icon-badge">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 8l7-5 7 5M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8" stroke="#6C3CE9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:18px;margin-bottom:10px;">Freelancers creativos</h3>
-        <p style="font-size:14.5px;color:var(--gray);">Ingresos inestables, búsqueda constante de clientes y falta de visibilidad, a pesar de tener talento validado.</p>
-      </div>
-      <div class="card">
-        <div class="icon-badge pink">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l6-4 6 4v14M9 9h.01M9 13h.01M15 9h.01M15 13h.01" stroke="#E63975" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 style="font-size:18px;margin-bottom:10px;">Micro y pequeñas empresas</h3>
-        <p style="font-size:14.5px;color:var(--gray);">Necesitan presencia digital y contenido de calidad, pero las agencias tradicionales (S/ 1,500–3,500/mes) están fuera de su alcance.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ A QUIEN AYUDAMOS ============ -->
-<section id="personas" class="reveal">
-  <div class="wrap">
-    <span class="eyebrow">Público objetivo</span>
-    <h2 class="section-title">A quién ayudamos</h2>
-    <p class="section-sub">Dos lados de un mismo mercado, con necesidades que se resuelven en la misma plataforma.</p>
-
-    <div class="grid-2" style="margin-top:40px;">
-      <div class="persona-card">
-        <span class="persona-tag" style="background:var(--lilac);color:var(--purple);">MARCAS Y EMPRENDEDORES</span>
-        <h3 style="font-size:21px;">Necesitan crecer sin agencia</h3>
-        <p style="font-size:14px;color:var(--gray);margin-top:8px;">
-          Emprendedores, comercios y marcas personales en Lima (Miraflores, San Isidro, Surco, La Molina, Cercado),
-          25–50 años, NSE A–C, activos en redes y compras online.
-        </p>
-        <ul class="persona-list">
-          <li>Buscan precios transparentes y rapidez para contratar.</li>
-          <li>Valoran garantía de calidad: reseñas y portafolio real.</li>
-          <li>Prefieren pagos locales: Yape, Plin, tarjeta.</li>
-          <li>Descubren proveedores en Instagram, Facebook y LinkedIn.</li>
-        </ul>
-      </div>
-      <div class="persona-card pink">
-        <span class="persona-tag" style="background:var(--pink-soft);color:var(--pink);">FREELANCERS CREATIVOS</span>
-        <h3 style="font-size:21px;">Necesitan clientes constantes</h3>
-        <p style="font-size:14px;color:var(--gray);margin-top:8px;">
-          Diseñadores, editores y especialistas en marketing digital que buscan estabilidad de ingresos
-          y visibilidad frente a marcas reales, no solo proyectos aislados.
-        </p>
-        <ul class="persona-list">
-          <li>Quieren un perfil con portafolio, experiencia y valoraciones.</li>
-          <li>Necesitan pago seguro, sin riesgo de trabajo no remunerado.</li>
-          <li>Buscan oportunidades constantes, no licitaciones eternas.</li>
-          <li>Valoran visibilidad frente a MYPEs que sí pueden pagar.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMO FUNCIONA ============ -->
-<section id="funciona" class="tint reveal">
+<!-- ============ COMO FUNCIONA (resumen) ============ -->
+<section class="tint reveal">
   <div class="wrap">
     <span class="eyebrow">La solución</span>
     <h2 class="section-title">Contratar talento creativo, sin fricción</h2>
     <p class="section-sub">Perfiles verificados, precios fijos y entregables claros: se elimina la negociación y se reduce el riesgo para ambos lados.</p>
-
     <div class="steps">
       <div class="step">
         <div class="step-line"></div>
-        <div class="step-num-circle grad-circle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
+        <div class="step-num-circle grad-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
         <h4>Encuentra</h4>
         <p>Explora perfiles con portafolio, experiencia y valoraciones reales.</p>
       </div>
       <div class="step">
         <div class="step-line"></div>
-        <div class="step-num-circle" style="background:var(--purple);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="#fff" stroke-width="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3" stroke="#fff" stroke-width="2"/></svg>
-        </div>
+        <div class="step-num-circle" style="background:var(--purple);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="2" stroke="#fff" stroke-width="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3" stroke="#fff" stroke-width="2"/></svg></div>
         <h4>Contrata seguro</h4>
         <p>Precio fijo y entregables definidos, sin negociación previa.</p>
       </div>
       <div class="step">
         <div class="step-line"></div>
-        <div class="step-num-circle" style="background:var(--pink);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
+        <div class="step-num-circle" style="background:var(--pink);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
         <h4>Recibe a tiempo</h4>
         <p>Entregas con tiempos y estándares claros desde el inicio.</p>
       </div>
       <div class="step">
         <div class="step-line"></div>
-        <div class="step-num-circle grad-circle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="step-num-circle grad-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h4>Haz crecer</h4>
         <p>Repite, recontrata y construye tu marca con el mismo aliado.</p>
       </div>
     </div>
+    <div style="margin-top:44px;">
+      <a href="nosotros.html" class="btn btn-ghost">Ver cómo funciona en detalle →</a>
+    </div>
   </div>
 </section>
 
-<!-- ============ SERVICIOS ============ -->
-<section id="servicios" class="reveal">
+<!-- ============ SERVICIOS TEASER ============ -->
+<section class="reveal">
   <div class="wrap">
     <span class="eyebrow">Catálogo</span>
     <h2 class="section-title">Servicios que impulsan tu marca</h2>
     <p class="section-sub">Tres categorías, un mismo estándar: precio claro y calidad verificada.</p>
-
     <div class="grid-3" style="margin-top:40px;">
       <div class="service-card">
-        <div class="service-icon" style="background:var(--lilac);">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="2" stroke="#6C3CE9" stroke-width="2"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="#6C3CE9"/></svg>
-        </div>
+        <div class="service-icon" style="background:var(--lilac);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="2" stroke="#6C3CE9" stroke-width="2"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="#6C3CE9"/></svg></div>
         <h3>Videos y Animación</h3>
         <p>Contenido audiovisual que conecta y convierte, desde reels hasta piezas de marca.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon" style="background:var(--pink-soft);">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 17l4-4 3 3 5-6 6 7" stroke="#E63975" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="6" r="2" stroke="#E63975" stroke-width="2"/></svg>
-        </div>
+        <div class="service-icon" style="background:var(--pink-soft);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 17l4-4 3 3 5-6 6 7" stroke="#E63975" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="6" r="2" stroke="#E63975" stroke-width="2"/></svg></div>
         <h3>Marketing Digital</h3>
         <p>Estrategias y campañas que hacen crecer tu marca en redes y buscadores.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon" style="background:var(--lilac);">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7a3 3 0 0 0-4-4l-7 7v4h4z" stroke="#6C3CE9" stroke-width="2" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="service-icon" style="background:var(--lilac);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7a3 3 0 0 0-4-4l-7 7v4h4z" stroke="#6C3CE9" stroke-width="2" stroke-linejoin="round"/></svg></div>
         <h3>Diseño Gráfico</h3>
         <p>Diseños creativos que comunican tu esencia, de logo a identidad completa.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ MERCADO / POSITIONING MAP ============ -->
-<section id="mercado" class="tint reveal">
-  <div class="wrap">
-    <span class="eyebrow">Cómo nos ubicamos</span>
-    <h2 class="section-title">Ni el riesgo de las redes, ni el precio de una agencia</h2>
-    <p class="section-sub">Un mapa simple: qué tanto pagas frente a qué tanta seguridad y confianza obtienes al contratar.</p>
-
-    <div class="map-wrap">
-      <div class="map-svg-holder">
-        <svg viewBox="0 0 480 380" width="100%" height="auto">
-          <!-- axes -->
-          <line x1="50" y1="20" x2="50" y2="330" stroke="#E4DEF7" stroke-width="2"/>
-          <line x1="50" y1="330" x2="460" y2="330" stroke="#E4DEF7" stroke-width="2"/>
-          <text x="30" y="20" font-family="Inter" font-size="11" fill="#6B7280">Alta</text>
-          <text x="18" y="335" font-family="Inter" font-size="11" fill="#6B7280">Baja</text>
-          <text x="46" y="352" font-family="Inter" font-size="11" fill="#6B7280">Precio bajo</text>
-          <text x="380" y="352" font-family="Inter" font-size="11" fill="#6B7280">Precio alto</text>
-          <text x="-175" y="14" font-family="Inter" font-size="11" fill="#6B7280" transform="rotate(-90)">Confianza / seguridad →</text>
-
-          <!-- points -->
-          <!-- Facebook/LinkedIn groups: low price, low trust -->
-          <circle cx="95" cy="300" r="9" fill="#C9C2E8"/>
-          <text x="108" y="304" font-family="Inter" font-size="12" fill="#1A1A2E">Grupos FB / LinkedIn</text>
-
-          <!-- Fiverr: mid-low price, mid trust -->
-          <circle cx="190" cy="205" r="9" fill="#C9C2E8"/>
-          <text x="203" y="209" font-family="Inter" font-size="12" fill="#1A1A2E">Fiverr</text>
-
-          <!-- SoyFreelancer -->
-          <circle cx="215" cy="230" r="9" fill="#C9C2E8"/>
-          <text x="228" y="234" font-family="Inter" font-size="12" fill="#1A1A2E">SoyFreelancer</text>
-
-          <!-- PuntoJob -->
-          <circle cx="175" cy="165" r="9" fill="#C9C2E8"/>
-          <text x="188" y="169" font-family="Inter" font-size="12" fill="#1A1A2E">PuntoJob</text>
-
-          <!-- Workana: mid price, high-ish trust but friction -->
-          <circle cx="255" cy="140" r="9" fill="#C9C2E8"/>
-          <text x="268" y="144" font-family="Inter" font-size="12" fill="#1A1A2E">Workana</text>
-
-          <!-- ProLatamWork -->
-          <circle cx="235" cy="110" r="9" fill="#C9C2E8"/>
-          <text x="248" y="114" font-family="Inter" font-size="12" fill="#1A1A2E">ProLatamWork</text>
-
-          <!-- Agencias: high price, high trust -->
-          <circle cx="400" cy="70" r="9" fill="#C9C2E8"/>
-          <text x="345" y="55" font-family="Inter" font-size="12" fill="#1A1A2E">Agencias tradicionales</text>
-
-          <!-- mi tribu: mid-low price, high trust -- highlighted -->
-          <circle cx="205" cy="90" r="13" fill="url(#gradDot)"/>
-          <text x="205" y="90" font-family="Poppins" font-weight="700" font-size="11" fill="#fff" text-anchor="middle" dy="4">t</text>
-          <text x="205" y="60" font-family="Inter" font-weight="700" font-size="13" fill="#6C3CE9" text-anchor="middle">mi tribu</text>
-
-          <defs>
-            <linearGradient id="gradDot" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#6C3CE9"/>
-              <stop offset="100%" stop-color="#E63975"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div class="comp-side">
-        <h4>Lo que nos diferencia</h4>
-        <p class="comp-blurb" style="margin-top:0;">
-          Fiverr enfrenta al talento peruano a precios globales. Workana funciona por licitación: leer, filtrar
-          y negociar decenas de propuestas. Los grupos de Facebook no dan ninguna seguridad de pago. Las agencias
-          tradicionales cuestan entre S/ 1,500 y S/ 3,500 al mes. <b>mi tribu</b> ofrece precio fijo, entregables
-          claros y un entorno seguro, al alcance de una MYPE.
-        </p>
-        <div class="chip-row">
-          <span class="chip">Precio fijo, sin negociar</span>
-          <span class="chip">Perfiles verificados</span>
-          <span class="chip weak">vs. licitación de Workana</span>
-          <span class="chip weak">vs. riesgo de grupos FB</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MODELO DE NEGOCIO ============ -->
-<section id="modelo" class="reveal">
-  <div class="wrap">
-    <span class="eyebrow">Modelo de negocio</span>
-    <h2 class="section-title">Cómo genera ingresos mi tribu</h2>
-    <p class="section-sub">Un modelo de comisión simple, con líneas de ingreso complementarias a futuro.</p>
-
-    <div class="grid-3" style="margin-top:40px;">
-      <div class="rev-card">
-        <div class="rev-num">20–30%</div>
-        <p style="font-size:14.5px;margin-top:10px;">Comisión por cada transacción: la marca paga el servicio, la plataforma retiene el porcentaje antes de pagarle al freelancer.</p>
-      </div>
-      <div class="rev-card">
-        <div class="rev-num">+Premium</div>
-        <p style="font-size:14.5px;margin-top:10px;">Planes premium para freelancers que buscan mayor visibilidad dentro de la plataforma.</p>
-      </div>
-      <div class="rev-card">
-        <div class="rev-num">+Suscripción</div>
-        <p style="font-size:14.5px;margin-top:10px;">Suscripciones para empresas que quieran acceso a beneficios exclusivos y recurrencia.</p>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:26px;">
-      <h4 style="font-size:16px;margin-bottom:14px;">Principales costos previstos</h4>
-      <ul class="cost-list">
-        <li><span>Desarrollo y mantenimiento de la plataforma</span><span class="tag">Producto</span></li>
-        <li><span>Integración de pasarelas de pago (Yape, Plin, tarjeta)</span><span class="tag">Operación</span></li>
-        <li><span>Marketing y adquisición de usuarios</span><span class="tag">Crecimiento</span></li>
-        <li><span>Soporte al cliente y gestión operativa</span><span class="tag">Operación</span></li>
-      </ul>
+    <div style="margin-top:36px;">
+      <a href="servicios.html" class="btn btn-primary">Ver todos los servicios →</a>
     </div>
   </div>
 </section>
@@ -575,6 +160,9 @@
     <div class="closing">
       <span class="eyebrow">Idea central</span>
       <h2>No queremos ser solo una plataforma donde encuentras freelancers; queremos convertirnos en el socio creativo que acompaña el crecimiento de las pequeñas marcas.</h2>
+      <div style="margin-top:28px;">
+        <a href="contacto.html" class="btn" style="background:#fff;color:var(--purple);">Empieza ahora →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -582,16 +170,16 @@
 <footer>
   <div class="wrap footer-row">
     <div class="logo" style="font-size:18px;">mi <b>trib</b><b class="u">u</b></div>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
     <div>Ecommerce de talento creativo · Lima, Perú</div>
   </div>
 </footer>
 
-<script>
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
